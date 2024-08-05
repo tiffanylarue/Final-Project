@@ -6,13 +6,14 @@ ULinkedList::ULinkedList() {
 
 ULinkedList::~ULinkedList() {}
 
+// Init_node
 ull_node* ULinkedList::init_node() {
     ull_node* ret = new(ull_node);
     ret->next = NULL;
     return ret;
 }
 
-//append node to end of linked list
+// Append a new node
 void ULinkedList::append(ull_node* new_node) {
     ull_node* cursor = top_ptr_;
     if (cursor == NULL) {
@@ -27,7 +28,10 @@ void ULinkedList::append(ull_node* new_node) {
     return;
 }
 
-//Assume entered in sorted order by date and then sport.
+// Assume data is entered in sorted order (sorted by date/time and then by sport). Navigate to the 
+// last node in the list. If the node's event array is full, create a new node and add it to the list. 
+// Move all events after the threshold amount to the new node. Then add a new event to 
+// the array with the event info given in the parameters.
 void ULinkedList::insert_data(ull_node* top, string sport, int datetime, string venues) {
     ull_node* cursor = top;
     //navigate to last node
@@ -62,11 +66,91 @@ void ULinkedList::insert_data(ull_node* top, string sport, int datetime, string 
     return;
 }
 
-//Can use assumption of sorted order to search node for item. Search by date/time first.
-string ULinkedList::search_venues(string sport, int datetime) {
-    
+// Assume that all events are sorted in ascending order by date/time, and then by sport.
+// Find the last event in the first node. If the date/time being searched is greater than the 
+// date/time of the last event, skip to the next node. Continue until you find the node that may contain
+// the event. Then search that node's array for the event. If item isn't found, return "N/A". If it is,
+// return the list of venues. 
+string ULinkedList::search_venues(ull_node* top, string sport, int datetime) {
+    ull_node* cursor = top;
+    //if the top points to null, return N/A
+    if (top == NULL) {
+        return "N/A";
+    }
+    //if datetime is greater than the datetime at node's last event in array, go to next node (if not null)
+    while (true) {
+        if (datetime > cursor->events[cursor->num_events - 1]->datetime) {
+            if (cursor->next == NULL) {return "N/A";}
+            else {
+                cursor = cursor->next;
+            }
+        }
+        else {break;}
+    }
+    //if node's last event's datetime = the datetime searched for, and sport searched > sport 
+    //at node's last event, go to the next node.
+    while (true) {
+        if (datetime == cursor->events[cursor->num_events - 1]->datetime 
+        && sport > cursor->events[cursor->num_events - 1]->sport) {
+            if (cursor->next == NULL) {return "N/A";}
+            else {
+                cursor = cursor->next;
+            }
+        }
+        else {break;}
+    }
 
-    return "venues";
+    //search for element
+    for (int i = 0; i < cursor->num_events; i++) {
+        if ((datetime == cursor->events[i]->datetime) && sport == cursor->events[i]->sport) {
+            return cursor->events[i]->venues;
+        }
+        else {return "N/A";}
+    }
+}
+
+void ULinkedList::remove_data(ull_node* top, string sport, int datetime) {
+    ull_node* cursor = top;
+    //if the top points to null, return
+    if (top == NULL) {
+        return;
+    }
+    //if datetime is greater than the datetime at node's last event in array, go to next node (if not null)
+    while (true) {
+        if (datetime > cursor->events[cursor->num_events - 1]->datetime) {
+            if (cursor->next == NULL) {return;}
+            else {
+                cursor = cursor->next;
+            }
+        }
+        else {break;}
+    }
+    //if node's last event's datetime = the datetime searched for, and sport searched > sport 
+    //at node's last event, go to the next node.
+    while (true) {
+        if (datetime == cursor->events[cursor->num_events - 1]->datetime 
+        && sport > cursor->events[cursor->num_events - 1]->sport) {
+            if (cursor->next == NULL) {return;}
+            else {
+                cursor = cursor->next;
+            }
+        }
+        else {break;}
+    }
+
+    //search for element. If found, shift all array elements past it back one. Set 
+    //final event/array value to null. Decrement num_events.
+    for (int i = 0; i < cursor->num_events; i++) {
+        if ((datetime == cursor->events[i]->datetime) && sport == cursor->events[i]->sport) {
+            for (int j = i; j < (cursor->num_events - 1); j++) {
+                cursor->events[j] = cursor->events[j + 1];
+                cursor->events[cursor->num_events - 1] = NULL;
+            }
+            cursor->num_events--;
+            return;
+        }
+        else {return;}
+    }
 }
 
 ull_node* ULinkedList::get_top() { return top_ptr_;}

@@ -2,9 +2,6 @@
 #define ULL_H
 
 #include <string>
-#include <vector>
-#include <memory>
-#include <iostream>
 
 using namespace std;
 
@@ -13,17 +10,13 @@ using namespace std;
 
 struct event {
     string sport;
-
     int datetime;
-
     string venues;
 };
 
 struct ull_node {
     int num_events;
-
     event* events[NODE_ORDER];
-
     ull_node* next;
 };
 
@@ -44,9 +37,10 @@ public:
     void insert_data(ull_node* top, string sport, int datetime, string venues);
 
     //Search sport and date/time to return venues
-    string search_venues(string sport, int datetime);
+    string search_venues(ull_node* top, string sport, int datetime);
 
     //Remove
+    void remove_data(ull_node* top, string sport, int datetime);
 
     //Sort
 

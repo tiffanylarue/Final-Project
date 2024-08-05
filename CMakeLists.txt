@@ -19,8 +19,5 @@ file(GLOB USER_FILES
 )
 
 
-
-ENABLE_TESTING()
-
 # create an executable for main.cpp in app folder
 add_executable( run_app "app/main.cpp" ${USER_FILES} )
