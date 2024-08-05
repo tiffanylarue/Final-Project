@@ -1,6 +1,5 @@
 #include <iostream>
 #include "../code/ull.h"
-#include "../code/ull.cpp"
 
 using namespace std;
 
