@@ -1,9 +1,14 @@
 # Where to Watch the Olympics: Unrolled Linked List
 ## Project Background
-My project's goal is to store information about which local venues will show each Olympic event. The user can search for an event's location by entering the sport they want to watch and the date/time of the event. For example, "women’s gymnastics" and "202408021200" (date/times are integers of the format YYYYMMDDHHMM, using a 24 hour clock). They will then get a string returned with the venues where the event is showing.
+My project's goal is to store information about which local venues will show each Olympic event. The user can search for an event's location by entering the sport they want to watch and the date/time of the event. For example, "women’s gymnastics" and "202408021200" (date/times are integers of the format YYYYMMDDHHMM, using a 24 hour clock). They will then get a string returned with the venues where the event is showing. There are 2,400 events that need to be stored, with associated date/time, sport category, and venues data.
 
 ## Why Unrolled Linked List
-The events data is stored in an unrolled linked list. This data structure is similar to a linked list, except multiple data elements can be stored in each node, using an array.
+
+<img src="https://github.com/user-attachments/assets/a255d0ef-a90e-4572-9a9f-3a2bbda511fe" alt="drawing" width="650"/>
+
+The events data is stored in an unrolled linked list. I chose this data structure because the 2,400 events that need to be stored and managed is a small data set, so a simple list data structure is sufficient to store and manage it. Additionally, since searching is the most important operation for users, the unrolled linked list has time and space complexity advantages over a standard linked list.
+
+The unrolled linked list is similar to a linked list, except multiple data elements can be stored in each node, using an array. The advantage of this is that 
 
 benefits - common for storing list of items. benefit over LL.
 
@@ -31,3 +36,4 @@ append
 (image)
 
 ## To Operate..
+
