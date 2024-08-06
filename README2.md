@@ -1,6 +1,6 @@
 # Where to Watch the Olympics: Unrolled Linked List
 ## Project Background
-My project's goal is to store information about which local venues will show each Olympic event. The user can search for an event's location by entering the sport they want to watch and the date/time of the event. For example, "women’s gymnastics" and "202408021200" (date/times are integers of the format YYYYMMDDHHMM, using a 24 hour clock). They will then get a string returned with the venues where the event is showing. There are 2,400 events that need to be stored, with associated date/time, sport category, and venues data.
+My project's goal is to store information about which local venues will show each Olympic event. The user can search for an event's location by entering the sport they want to watch and the date/time of the event. For example, "gymnastics" and "202408021200" (date/times are integers of the format YYYYMMDDHHMM, using a 24 hour clock). They will then get a string returned with the venues where the event is showing. There are 2,400 events that need to be stored, with associated date/time, sport category, and venues data.
 
 ## Why Unrolled Linked List
 
