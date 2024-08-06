@@ -4,7 +4,7 @@ My project's goal is to store information about which local venues will show eac
 
 ## Why Unrolled Linked List
 
-<img src="https://github.com/user-attachments/assets/a255d0ef-a90e-4572-9a9f-3a2bbda511fe" alt="drawing" width="650"/>
+<img src="https://github.com/user-attachments/assets/625804d7-1793-47c6-96aa-66be5b174a25" alt="ull" width="650"/>
 
 The events data is stored in an unrolled linked list. I chose this data structure because the 2,400 events that need to be stored and managed is a small data set, so a simple list data structure is sufficient to store and manage it. Additionally, since searching is the most important operation for users, the unrolled linked list has time and space complexity advantages over a standard linked list.
 
