@@ -30,5 +30,3 @@ For my implementation, I created two structs - one for the node, "ull_node", and
 - void append(ull_node* new_node): takes in a new node pointer and appends it to an unrolled linked list.
 - ull_node* get_top(): gets the top pointer for the unrolled linked list.
 - void set_top(ull_node* top_ptr): sets the top pointer for the unrolled linked list.
-
-## To Operate..
