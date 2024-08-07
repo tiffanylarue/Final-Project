@@ -7,7 +7,7 @@ My project's goal is to store information about which local venues will show eac
 
 The diagram above shows the unrolled linked list data structure I chose to store the events data. I chose this data structure because the 2,400 events that need to be stored and managed is a small data set, so a simple list data structure is sufficient to store and manage it. Additionally, since searching is the most important operation for users, the unrolled linked list has time and space complexity advantages over a standard linked list.
 
-# About the Unrolled Linked List and Invariants
+## About the Unrolled Linked List and Invariants
 The unrolled linked list is similar to a linked list, except multiple data elements can be stored in each node, using an array. In this way, the node is similar to a B-tree node as compared with a BST node. The array is only filled to a threshold of half to 3/4 full, so that new elements can be added without creating a whole new node. When the array in a node is full, adding a new element will create a new node, and elements from original node over the threshold are moved to the new node; then the new element is added. Removing elements is the opposite of adding - when all elements in a node are removed, the node will be removed, and nodes on either side will be joined. The number of nodes shoud should always be sqrt(total number of elements in the arrays).
 
 ## Advantages and Disadvantages
