@@ -42,10 +42,6 @@ public:
     //Remove
     void remove_data(ull_node* top, string sport, int datetime);
 
-    //Sort
-
-    //Filter
-
     ull_node* get_top();
 
     void set_top(ull_node* top_ptr);
