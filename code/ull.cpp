@@ -109,6 +109,7 @@ string ULinkedList::search_venues(ull_node* top, string sport, int datetime) {
     }
 }
 
+//Takes in a top pointer, and uses sport and datetime info to search for and remove event data. If the sport/datetime combination is not found, nothing is changed.
 void ULinkedList::remove_data(ull_node* top, string sport, int datetime) {
     ull_node* cursor = top;
     //if the top points to null, return
