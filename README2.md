@@ -23,7 +23,7 @@ For my implementation, I created two structs - one for the node, "ull_node", and
 
 - string search_venues(ull_node* top, string sport, int datetime): This function assumes data is entered in sorted order (by date/time and then by sport). It uses a cursor to find the last event in the first node. If the date/time being searched is greater than the date/time of the last event, it will skip to the next node. This will continue until it finds the node that may contain the event. It then searches that node's array for the event. If the item isn't found, it returns "N/A". If it is, it returns the list of venues. 
 
-- void remove_data(ull_node* top, string sport, int datetime): - This function is similar to search when searching for an item. If it is not found, "N/A" is returned. If it is found, it is removed and later items are moved to an earlier index by 1. num_events is updated to track the number of elements in the array.
+- void remove_data(ull_node* top, string sport, int datetime): - This function is similar to search when searching for an item. If it is not found, nothing is changes. If it is found, it is removed and later items in the node are moved forward (updated to an earlier index by 1). num_events is updated to track the number of elements in the array.
 
 ### Helper Functions
 - ull_node* init_node(): creates a new node and returns a pointer to it.
