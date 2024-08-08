@@ -39,11 +39,13 @@ public:
     //Search sport and date/time to return venues
     string search_venues(ull_node* top, string sport, int datetime);
 
-    //Remove
+    //Search for sport/datetime combination and remove if found
     void remove_data(ull_node* top, string sport, int datetime);
 
+    //get top pointer
     ull_node* get_top();
 
+    //set top pointer
     void set_top(ull_node* top_ptr);
 
 private:
